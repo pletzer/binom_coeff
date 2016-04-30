@@ -14,8 +14,12 @@ def binom_coeff(n, k):
         return 1
     
     # See https://en.wikipedia.org/wiki/Binomial_coefficient#Combinatorics_and_statistics
-    res = 1
+    # making sure the result is an integer
+    num = 1
+    denom = 1
     for i in range(1, k + 1):
-        res *= (n + 1 - i)/i
+        num *= (n + 1 - i)
+        denom *= i
 
-    return res
+    # integer division
+    return num // denom
